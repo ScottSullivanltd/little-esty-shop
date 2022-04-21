@@ -15,6 +15,7 @@ RSpec.describe Merchant, type: :model do
   end
 
   describe "sorting" do
+    before do
     @merchant = create :merchant
     @merchant2 = create :merchant
     @item1 = create :item, {merchant_id: @merchant.id, enabled: "enabled"}
@@ -46,7 +47,7 @@ RSpec.describe Merchant, type: :model do
     # failed transaction
     @transaction2 = create :transaction, {result: 1, invoice_id: @invoice2.id, credit_card_expiration_date: 12121212}
     @invoice_item10 = create :invoice_item, {invoice_id: @invoice2.id, item_id: @item6.id, quantity: 1, unit_price: 100, status: 2}
-
+    end
     it "returns enabled items" do
       expect(@merchant.enabled_items.first).to eq(@item1)
     end

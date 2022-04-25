@@ -36,6 +36,13 @@ RSpec.describe "Merchant Dashboard", type: :feature do
       expect(current_path).to eq(merchant_invoices_path(@merchant))
     end
 
+    it "has a link to view all bulk discounts", :vcr do
+      expect(page).to have_link("Bulk Discounts")
+
+      click_link "Bulk Discounts"
+      expect(current_path).to eq(merchant_bulk_discounts_path(@merchant))
+    end
+
     it "displays items ready to ship with a link to the item's invoice", :vcr do
       expect(@merchant.items_ready_to_ship).to eq([@invoice_item1, @invoice_item2])
 

@@ -22,3 +22,4 @@
 <% end %>
 
 <h2>Invoice Total Revenue: <%= number_to_currency(@invoice.total_revenue.fdiv(100)) %></h2>
+<h2>Total Discount Revenue: <%= number_to_currency(@invoice.total_revenue_after_discount.fdiv(100)) %></h2>

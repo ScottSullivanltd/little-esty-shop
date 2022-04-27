@@ -35,6 +35,15 @@ RSpec.describe "Merchant Invoices Show" do
       expect(@invoices1[0].total_revenue).to eq(expected)
     end
 
+    xit "displays total discounted revenue after bulk discounts are applied" do
+      bulk_discount1 = BulkDiscount.create!(percentage_discount: 10, quantity_threshold: 10)
+
+      expected = ((@invoice_item1.quantity * @invoice_item1.unit_price) * bulk_discount1) + (@invoice_item2.quantity * @invoice_item2.unit_price)
+
+      expect(page).to have_content(@invoices1[0].total_revenue_after_discount)
+      expect(@invoices1[0].total_revenue_after_discount).to eq(expected)
+    end
+
     describe "invoice items" do
       it "lists all invoice item names, quantity, price and status", :vcr do
         within "#invoice_item-#{@invoice_item2.id}" do

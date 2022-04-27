@@ -36,7 +36,7 @@ RSpec.describe "Merchant Invoices Show" do
     end
 
     xit "displays total discounted revenue after bulk discounts are applied" do
-      bulk_discount1 = BulkDiscount.create!(percentage_discount: 10, quantity_threshold: 10)
+      bulk_discount1 = merchant[0].bulk_discount.create!(percentage_discount: 10, quantity_threshold: 10)
 
       expected = ((@invoice_item1.quantity * @invoice_item1.unit_price) * bulk_discount1) + (@invoice_item2.quantity * @invoice_item2.unit_price)
 

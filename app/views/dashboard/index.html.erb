@@ -1,7 +1,7 @@
 <h1><%= @merchant.name %></h1>
 <ul>
   <%= link_to "Merchant Items", merchant_items_path(params[:merchant_id]) %><br>
-  <%= link_to "Merchant Invoices", merchant_invoices_path(params[:merchant_id]) %>
+  <%= link_to "Merchant Invoices", merchant_invoices_path(params[:merchant_id]) %><br>
   <%= link_to "Bulk Discounts", merchant_bulk_discounts_path(params[:merchant_id]) %>
 </ul>
 

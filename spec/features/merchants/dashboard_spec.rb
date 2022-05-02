@@ -64,14 +64,14 @@ RSpec.describe "Merchant Dashboard", type: :feature do
         expect(page).to have_link(@invoice_item2.invoice.id)
         expect(page).to have_content(@item2.name)
         expect(page).to have_content(@invoice1.id)
-        expect(page).to have_content(@invoice_item2.invoice.created_at.strftime("%A, %B %d, %Y"))
+        expect(page).to have_content(@invoice_item2.invoice.created_at.strftime("%A, %B%e, %Y"))
       end
 
       within("#items_to_ship-#{@invoice_item1.id}") do
         expect(page).to have_link(@invoice_item1.invoice.id)
         expect(page).to have_content(@item1.name)
         expect(page).to have_content(@invoice1.id)
-        expect(page).to have_content(@invoice_item1.invoice.created_at.strftime("%A, %B %e, %Y"))
+        expect(page).to have_content(@invoice_item1.invoice.created_at.strftime("%A, %B%e, %Y"))
       end
 
       expect(@item1.name).to appear_before(@item2.name)

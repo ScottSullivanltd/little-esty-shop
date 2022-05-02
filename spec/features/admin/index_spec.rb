@@ -77,12 +77,12 @@ RSpec.describe "Admin Dashboard", type: :feature do
 
     within("#incomplete-invoices-#{invoice1.id}") do
       expect(page).to have_content(invoice1.id.to_s)
-      expect(page).to have_content(invoice1.created_at.strftime("%A, %B %e, %Y"))
+      expect(page).to have_content(invoice1.created_at.strftime("%A, %B%e, %Y"))
     end
 
     within("#incomplete-invoices-#{invoice2.id}") do
       expect(page).to have_content(invoice2.id.to_s)
-      expect(page).to have_content(invoice2.created_at.strftime("%A, %B %e, %Y"))
+      expect(page).to have_content(invoice2.created_at.strftime("%A, %B%e, %Y"))
     end
   end
 
